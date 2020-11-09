@@ -17,9 +17,8 @@ export default {
         clientId: '0oahyrzgOBx3e0pcP5d5',
         redirectUri: 'http://localhost:8080/callback',
         authParams: {
-          pkce: true,
           issuer: 'https://powerhour.okta.com/oauth2/default',
-          display: 'fragment',
+          display: 'page',
           scopes: ['openid', 'profile', 'email']
         }
       })

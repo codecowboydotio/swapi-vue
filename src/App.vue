@@ -2,9 +2,9 @@
   <div id="app">
     <div class="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/starships" v-if="!authenticated">Starships</router-link> |
-      <router-link to="/vehicles" v-if="authenticated">Vehicles</router-link> |
-      <router-link to="/login" v-if="!authenticated">Login</router-link>
+      <router-link to="/starships">Starships (Needs Auth)</router-link> |
+      <router-link to="/vehicles">Vehicles</router-link> |
+      <span @click="logout()">Logout</span>
     </div>
     <hr />
     <div class="router-view">

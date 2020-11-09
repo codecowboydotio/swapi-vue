@@ -12,14 +12,14 @@ import Login from "@/components/Login";
 Vue.use(Auth, {
   issuer: 'https://powerhour.okta.com/oauth2/default',
   clientId: '0oahyrzgOBx3e0pcP5d5',
-  redirectUri: 'http://192.168.109.144:8080/callback',
+  redirectUri: 'http://localhost:8080/callback',
   scopes: ['openid', 'profile', 'email']
 })
 Vue.use(VueRouter)
 
 const routes = [
   { path: "/", component: Home },
-  { path: "/starships", component: starships },
+  { path: "/starships", component: starships, meta: { requiresAuth: true } },
   { path: "/vehicles", component: vehicles },
   { path: "/login", component: Login },
   { path: "/callback", component: Auth.handleCallback() },
