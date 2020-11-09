@@ -9,30 +9,31 @@ import starships from "@/components/starships";
 import Home from "@/components/Home";
 import Login from "@/components/Login";
 
-Vue.use(VueRouter);
 Vue.use(Auth, {
   issuer: 'https://powerhour.okta.com/oauth2/default',
   clientId: '0oahyrzgOBx3e0pcP5d5',
-  redirectUri: 'http://10.1.1.140:8080/login/callback',
+  redirectUri: 'http://192.168.109.144:8080/callback',
   scopes: ['openid', 'profile', 'email']
 })
+Vue.use(VueRouter)
 
 const routes = [
   { path: "/", component: Home },
   { path: "/starships", component: starships },
   { path: "/vehicles", component: vehicles },
   { path: "/login", component: Login },
-  { path: "/login/callback", component: Auth.handleCallback() },
-];
+  { path: "/callback", component: Auth.handleCallback() },
+]
 
 const router = new VueRouter({
   routes: routes,
   mode: "history",
-});
+})
+router.beforeEach(Vue.prototype.$auth.authRedirectGuard())
 
-Vue.config.productionTip = false;
+Vue.config.productionTip = false
 
 new Vue({
   router,
   render: (h) => h(App),
-}).$mount("#app");
+}).$mount("#app")

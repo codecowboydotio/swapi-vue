@@ -13,13 +13,13 @@ export default {
   mounted: function () {
     this.$nextTick(function () {
       this.widget = new OktaSignIn({
-        baseUrl: 'https://powerhour.okta.com/',
+        baseUrl: 'https://powerhour.okta.com/oauth2/default',
         clientId: '0oahyrzgOBx3e0pcP5d5',
-        redirectUri: 'http://10.1.1.140:8080/login/callback',
+        redirectUri: 'http://localhost:8080/callback',
         authParams: {
-          pkce: false,
+          pkce: true,
           issuer: 'https://powerhour.okta.com/oauth2/default',
-          display: 'page',
+          display: 'fragment',
           scopes: ['openid', 'profile', 'email']
         }
       })
