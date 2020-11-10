@@ -19,7 +19,7 @@
        <tbody>
          <tr>
           <tr v-for="vehicle in vehicles" :key="vehicle.id">
-           <td><img v-bind:src="'http://10.1.1.140:3000/' + vehicle.image" /></td>
+           <td><img v-bind:src="'http://noauth.powerhour.com:3000/' + vehicle.image" /></td>
            <td>{{ vehicle.name }}</td>
            <td>{{ vehicle.vehicle_class }}</td>
            <td>{{ vehicle.model }}</td>
@@ -42,7 +42,7 @@ export default {
     }
   },
   created() {
-    axios.get('http://10.1.1.140:3000/vehicles')
+    axios.get('http://noauth.powerhour.com:3000/vehicles')
     .then(response => {
       this.vehicles = response.data
       console.log(response.data)

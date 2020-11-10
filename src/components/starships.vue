@@ -4,7 +4,7 @@
        <p>
          The ships of starwars<br /><br />
        </p>
-       <p v-if="acc_tkn"> Scopes:        {{ acc_tkn.accessToken.scopes }}<br /></p>
+       <p v-if="acc_tkn">Scopes:        {{ acc_tkn.accessToken.scopes }}<br /></p>
        <p v-if="acc_tkn">authorize Url: {{ acc_tkn.accessToken.authorizeUrl }}<br /></p>
        <p v-if="acc_tkn">token Type:    {{ acc_tkn.accessToken.tokenType }}<br /></p>
        <p v-if="acc_tkn">token Value:   {{ acc_tkn.accessToken.value }}<br /></p>
@@ -23,7 +23,7 @@
        <tbody>
          <tr>
           <tr v-for="starship in starships" :key="starship.id">
-           <td><img v-bind:src="'http://192.168.109.144:3000/' + starship.image" /></td>
+           <td><img v-bind:src="'http:////cdn.powerhour.com/' + starship.image" /></td>
            <td>{{ starship.name }}</td>
            <td>{{ starship.starship_class }}</td>
            <td>{{ starship.model }}</td>
@@ -37,6 +37,7 @@
 
 <script>
 import axios from "axios";
+
 export default {
   data() {
     return {
@@ -64,7 +65,7 @@ export default {
     })
     .catch(e => {
       //this.errors.push(e)
-      console.log(e.data)
+      console.log(e)
     })
   }
 } 
