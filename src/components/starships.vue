@@ -3,11 +3,11 @@
      <div class="jumbotron col-xs-offset-2 col-xs-8">
        <p>
          The ships of starwars<br /><br />
-         Scopes:        {{ acc_tkn.accessToken.scopes }}<br />
-         authorize Url: {{ acc_tkn.accessToken.authorizeUrl }}<br />
-         token Type:    {{ acc_tkn.accessToken.tokenType }}<br />
-         token Value:   {{ acc_tkn.accessToken.value }}<br />
        </p>
+       <p v-if="acc_tkn"> Scopes:        {{ acc_tkn.accessToken.scopes }}<br /></p>
+       <p v-if="acc_tkn">authorize Url: {{ acc_tkn.accessToken.authorizeUrl }}<br /></p>
+       <p v-if="acc_tkn">token Type:    {{ acc_tkn.accessToken.tokenType }}<br /></p>
+       <p v-if="acc_tkn">token Value:   {{ acc_tkn.accessToken.value }}<br /></p>
      </div>
      <table class="table table-hover">
        <thead class="thead thead-light">
@@ -41,21 +41,30 @@ import axios from "axios";
 export default {
   data() {
     return {
-      starships: {},
       acc_tkn: {},
-      errors: {}
+      starships: {},
+      errors: {},
+      loading: false
     }
   },
   created() {
     var access_token = localStorage.getItem('okta-token-storage')
     this.acc_tkn = JSON.parse(access_token)
-    axios.get('http://192.168.109.144:3000/starships')
+    //console.log(JSON.parse(access_token))
+    //console.log(this.acc_tkn.accessToken.value)
+    //axios.get('http://192.168.109.144:3000/starships')
+    axios.get('http://api.powerhour.com/starships', {
+      headers: {
+        'Authorization': `Bearer ${this.acc_tkn.accessToken.value}`
+      }
+    })
     .then(response => {
-      this.starships = response.data
+      this.starships = response.data.data
       console.log(response.data)
     })
     .catch(e => {
       this.errors.push(e)
+      console.log(e)
     })
   }
 } 

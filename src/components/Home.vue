@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-     <h1>Custom My uncool test app</h1>
+     <h1>My uncool test app</h1>
     <div v-if="!this.$parent.authenticated">
       <p>Hello, Vue.</p>
       <router-link role="button" to="/login">
@@ -20,7 +20,7 @@
       <br>
       <p>
         You have successfully authenticated with Okta!
-        Visit the <a href="/profile">My Profile</a> page to take a look inside the ID token.
+        Visit the <a href="/starships">starships</a> page to take a look inside the auth token.
       </p>
     </div>
   </div>
