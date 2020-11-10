@@ -3,8 +3,12 @@
      <h1>My uncool test app</h1>
     <div v-if="!this.$parent.authenticated">
       <p>Hello, Vue.</p>
-      <router-link role="button" to="/login">
-        Login
+      <router-link role="button" to="/starships">
+        See some authenticated stuff
+      </router-link>
+      <br>
+      <router-link role="button" to="/vehicles">
+        See some UN-authenticated stuff
       </router-link>
     </div>
 

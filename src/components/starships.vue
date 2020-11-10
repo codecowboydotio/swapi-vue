@@ -37,7 +37,6 @@
 
 <script>
 import axios from "axios";
-
 export default {
   data() {
     return {
@@ -52,19 +51,20 @@ export default {
     this.acc_tkn = JSON.parse(access_token)
     //console.log(JSON.parse(access_token))
     //console.log(this.acc_tkn.accessToken.value)
-    //axios.get('http://192.168.109.144:3000/starships')
+    //axios.get('http://192.168.109.144:3000/starships', {
     axios.get('http://api.powerhour.com/starships', {
       headers: {
         'Authorization': `Bearer ${this.acc_tkn.accessToken.value}`
       }
     })
     .then(response => {
-      this.starships = response.data.data
+      this.starships = response.data
       console.log(response.data)
+      console.log(response)
     })
     .catch(e => {
-      this.errors.push(e)
-      console.log(e)
+      //this.errors.push(e)
+      console.log(e.data)
     })
   }
 } 
