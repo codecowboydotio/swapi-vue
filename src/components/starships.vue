@@ -7,6 +7,7 @@
        <p v-if="acc_tkn">Scopes:        {{ acc_tkn.accessToken.scopes }}<br /></p>
        <p v-if="acc_tkn">authorize Url: {{ acc_tkn.accessToken.authorizeUrl }}<br /></p>
        <p v-if="acc_tkn">token Type:    {{ acc_tkn.accessToken.tokenType }}<br /></p>
+       <p v-if="acc_tkn">Ship claim Value:   {{ custom_claims.shipSize }}<br /></p>
        <p v-if="acc_tkn">token Value:   {{ acc_tkn.accessToken.value }}<br /></p>
      </div>
      <table class="table table-hover">
@@ -38,19 +39,32 @@
 <script>
 import axios from "axios";
 
+function parseJwt (token) {
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+
+    return JSON.parse(jsonPayload);
+}
+
 export default {
   data() {
     return {
       acc_tkn: {},
       starships: {},
       errors: {},
+      custom_claims: {}, 
       loading: false
     }
   },
   created() {
     var access_token = localStorage.getItem('okta-token-storage')
     this.acc_tkn = JSON.parse(access_token)
-    //console.log(JSON.parse(access_token))
+    console.log(JSON.parse(access_token))
+    this.custom_claims = parseJwt(this.acc_tkn.accessToken.value)
+    console.log(this.custom_claims)
     //console.log(this.acc_tkn.accessToken.value)
     //axios.get('http://192.168.109.144:3000/starships', {
     axios.get('http://api.powerhour.com/starships', {

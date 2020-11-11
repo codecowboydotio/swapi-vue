@@ -13,7 +13,7 @@ Vue.use(Auth, {
   issuer: 'https://powerhour.okta.com/oauth2/default',
   clientId: '0oahyrzgOBx3e0pcP5d5',
   redirectUri: 'http://localhost:8080/callback',
-  scopes: ['openid', 'profile', 'email']
+  scopes: ['openid', 'profile', 'email', 'ship']
 })
 Vue.use(VueRouter)
 
