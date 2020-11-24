@@ -24,7 +24,7 @@
        <tbody>
          <tr>
           <tr v-for="starship in starships" :key="starship.id">
-           <td><img v-bind:src="'http:////cdn.powerhour.com/' + starship.image" /></td>
+           <td><img v-bind:src="'http://cdn.powerhour.com/' + starship.image" /></td>
            <td>{{ starship.name }}</td>
            <td>{{ starship.starship_class }}</td>
            <td>{{ starship.model }}</td>
@@ -66,7 +66,6 @@ export default {
     this.custom_claims = parseJwt(this.acc_tkn.accessToken.value)
     console.log(this.custom_claims)
     //console.log(this.acc_tkn.accessToken.value)
-    //axios.get('http://192.168.109.144:3000/starships', {
     axios.get('http://api.powerhour.com/starships', {
       headers: {
         'Authorization': `Bearer ${this.acc_tkn.accessToken.value}`
