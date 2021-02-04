@@ -11,7 +11,7 @@
     "@okta/okta-signin-widget": "^5.0.0",
     "@okta/okta-vue": "^2.1.1",
     "axios": "^0.21.0",
-    "core-js": "^3.6.5",
+    "core-js": "^3.8.2",
     "vue": "^2.6.11",
     "vue-2-crumbs": "^0.5.4",
     "vue-auth-image": "0.0.3",
