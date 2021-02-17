@@ -15,7 +15,7 @@
     "vue": "^2.6.11",
     "vue-2-crumbs": "^0.5.4",
     "vue-auth-image": "0.0.3",
-    "vue-router": "^3.4.9"
+    "vue-router": "^3.5.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
