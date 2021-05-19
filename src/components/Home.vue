@@ -4,29 +4,14 @@
     <div v-if="!this.$parent.authenticated">
       <p>Hello, Vue.</p>
       <router-link role="button" to="/starships">
-        See some authenticated stuff
+        See some starships
       </router-link>
       <br>
       <router-link role="button" to="/vehicles">
-        See some UN-authenticated stuff
+        See some vehicles
       </router-link>
     </div>
 
-    <div v-if="this.$parent.authenticated">
-      <p>Welcome back, {{claims.name}}!</p>
-      <br>
-      <p>name:               {{claims.name}},</p>
-      <p>email:              {{claims.email}}</p>
-      <p>preferred username: {{claims.preferred_username}}</p>
-      <p>given name:         {{claims.given_name}}</p>
-      <p>family name:        {{claims.family_name}}</p>
-      <p>timezone:           {{claims.zoneinfo}}</p>
-      <br>
-      <p>
-        You have successfully authenticated with Okta!
-        Visit the <a href="/starships">starships</a> page to take a look inside the auth token.
-      </p>
-    </div>
   </div>
 </template>
 
@@ -36,12 +21,6 @@ export default {
   data: function() {
     return {
       claims: ''
-    }
-  },
-  created() { this.setup() },
-  methods: {
-    async setup() {
-      this.claims = await this.$auth.getUser()
     }
   }
 }
