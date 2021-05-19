@@ -17,13 +17,13 @@
 
 export default {
   name: 'app',
-  data: function () {
-    return { authenticated: false }
-  },
-  created () { this.isAuthenticated() },
-  watch: {
-    // Everytime the route changes, check for auth status
-    '$route': 'isAuthenticated'
-  }
+//  data: function () {
+//    return { authenticated: false }
+//  },
+//  created () { this.isAuthenticated() },
+//  watch: {
+//    // Everytime the route changes, check for auth status
+//    '$route': 'isAuthenticated'
+//  }
 }
 </script>
