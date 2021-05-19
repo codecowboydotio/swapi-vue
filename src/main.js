@@ -5,6 +5,7 @@ import VueRouter from "vue-router";
 import App from "@/App.vue";
 import vehicles from "@/components/vehicles";
 import starships from "@/components/starships";
+import people from "@/components/people";
 import Home from "@/components/Home";
 
 Vue.use(VueRouter)
@@ -13,13 +14,13 @@ const routes = [
   { path: "/", component: Home },
   { path: "/starships", component: starships },
   { path: "/vehicles", component: vehicles },
+  { path: "/people", component: people },
 ]
 
 const router = new VueRouter({
   routes: routes,
   mode: "history",
 })
-//router.beforeEach(Vue.prototype.$auth.authRedirectGuard())
 
 Vue.config.productionTip = false
 
