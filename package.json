@@ -10,7 +10,7 @@
   "dependencies": {
     "@okta/okta-signin-widget": "^5.0.0",
     "@okta/okta-vue": "^2.1.1",
-    "axios": "^0.21.0",
+    "axios": "^0.21.3",
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
     "vue-2-crumbs": "^0.5.4",
