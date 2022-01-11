@@ -6,6 +6,7 @@ import App from "@/App.vue";
 import vehicles from "@/components/vehicles";
 import starships from "@/components/starships";
 import people from "@/components/people";
+import planets from "@/components/planets";
 import Home from "@/components/Home";
 
 Vue.use(VueRouter)
@@ -15,6 +16,7 @@ const routes = [
   { path: "/starships", component: starships },
   { path: "/vehicles", component: vehicles },
   { path: "/people", component: people },
+  { path: "/planets", component: planets },
 ]
 
 const router = new VueRouter({

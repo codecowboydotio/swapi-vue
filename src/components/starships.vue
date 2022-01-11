@@ -19,7 +19,7 @@
        <tbody>
          <tr>
           <tr v-for="starship in starships" :key="starship.id">
-           <td><img v-bind:src="'http://10.1.1.150:3000/' + starship.image" /></td>
+           <td><img v-bind:src="'https://svk-swapi-api.sa.f5demos.com/' + starship.image" /></td>
            <td>{{ starship.name }}</td>
            <td>{{ starship.starship_class }}</td>
            <td>{{ starship.model }}</td>
@@ -52,7 +52,7 @@ export default {
     }
   },
   created() {
-    axios.get('http://10.1.1.150:3000/starships')
+    axios.get('https://svk-swapi-api.sa.f5demos.com/starships')
     .then(response => {
       this.starships = response.data
       console.log(response.data)

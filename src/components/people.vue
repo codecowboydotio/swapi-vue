@@ -19,7 +19,7 @@
        <tbody>
          <tr>
           <tr v-for="person in people" :key="person.id">
-           <td><img v-bind:src="'http://10.1.1.150:3000/' + person.image" /></td>
+           <td><img v-bind:src="'https://svk-swapi-api.sa.f5demos.com/' + person.image" /></td>
            <td>{{ person.name }}</td>
            <td>{{ person.birth_year }}</td>
            <td>{{ person.height }}cm</td>
@@ -43,12 +43,12 @@ export default {
     }
   },
   created() {
-    axios.get('http://10.1.1.150:3000/people')
+    axios.get('https://svk-swapi-api.sa.f5demos.com/people')
     .then(response => {
       this.people = response.data
       console.log(response.data)
     }),
-    axios.get('http://10.1.1.150:3000/planets')
+    axios.get('https://svk-swapi-api.sa.f5demos.com/planets')
     .then(response => {
       this.planets = response.data
       console.log(response.data)
